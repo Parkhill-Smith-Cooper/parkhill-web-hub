@@ -1,27 +1,8 @@
 import { Text } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
-
-interface Program {
-  id: number;
-  name: string;
-}
-
-interface FetchProgramsResponse {
-  count: number;
-  results: Program[];
-}
+import usePrograms from "../hooks/usePrograms";
 
 const ProgramsGrid = () => {
-  const [programs, setPrograms] = useState<Program[]>([]);
-  const [error, setError] = useState("");
-
-  useEffect(() => {
-    apiClient
-      .get<FetchProgramsResponse>("/games")
-      .then((res) => setPrograms(res.data.results))
-      .catch((err) => setError(err.message));
-  });
+  const { programs, error } = usePrograms();
 
   return (
     <>
