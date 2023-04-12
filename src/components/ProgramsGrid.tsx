@@ -1,5 +1,6 @@
-import { Text } from "@chakra-ui/react";
+import { SimpleGrid, Text } from "@chakra-ui/react";
 import usePrograms from "../hooks/usePrograms";
+import ProgramCard from "./ProgramCard";
 
 const ProgramsGrid = () => {
   const { programs, error } = usePrograms();
@@ -7,11 +8,15 @@ const ProgramsGrid = () => {
   return (
     <>
       {error && <Text>{error}</Text>}
-      <ul>
+      <SimpleGrid
+        columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
+        padding="10px"
+        spacing={10}
+      >
         {programs.map((program) => (
-          <li key={program.id}>{program.name}</li>
+          <ProgramCard key={program.id} program={program} />
         ))}
-      </ul>
+      </SimpleGrid>
     </>
   );
 };
