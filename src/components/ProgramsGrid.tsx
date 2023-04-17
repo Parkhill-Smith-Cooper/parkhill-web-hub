@@ -1,6 +1,7 @@
 import { SimpleGrid, Text } from "@chakra-ui/react";
 import usePrograms from "../hooks/usePrograms";
 import ProgramCard from "./ProgramCard";
+import ProgramCardContainer from "./ProgramCardContainer";
 import ProgramCardSkeleton from "./ProgramCardSkeleton";
 
 const ProgramsGrid = () => {
@@ -16,9 +17,15 @@ const ProgramsGrid = () => {
         spacing={10}
       >
         {isLoading &&
-          skeletons.map((skeleton) => <ProgramCardSkeleton key={skeleton} />)}
+          skeletons.map((skeleton) => (
+            <ProgramCardContainer>
+              <ProgramCardSkeleton key={skeleton} />
+            </ProgramCardContainer>
+          ))}
         {programs.map((program) => (
-          <ProgramCard key={program.id} program={program} />
+          <ProgramCardContainer>
+            <ProgramCard key={program.id} program={program} />
+          </ProgramCardContainer>
         ))}
       </SimpleGrid>
     </>
