@@ -11,7 +11,7 @@ interface Props {
 
 const ProgramCard = ({ program }: Props) => {
   return (
-    <Card width="300px" borderRadius={10} overflow="hidden">
+    <Card>
       <Image src={getCroppedImageUrl(program.background_image)} />
       <CardBody>
         <Heading fontSize="2xl">{program.name}</Heading>
