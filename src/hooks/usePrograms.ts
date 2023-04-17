@@ -13,6 +13,7 @@ export interface Program {
   name: string;
   background_image: string;
   parent_platforms: {platform: Platform}[];
+  metacritic: number;
 }
 
 interface FetchProgramsResponse {
