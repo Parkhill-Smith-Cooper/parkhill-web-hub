@@ -5,7 +5,7 @@ import ProgramCardContainer from "./ProgramCardContainer";
 import ProgramCardSkeleton from "./ProgramCardSkeleton";
 
 const ProgramsGrid = () => {
-  const { programs, error, isLoading } = usePrograms();
+  const { data, error, isLoading } = usePrograms();
   const skeletons = [1, 2, 3, 4, 5, 6];
 
   return (
@@ -22,7 +22,7 @@ const ProgramsGrid = () => {
               <ProgramCardSkeleton key={skeleton} />
             </ProgramCardContainer>
           ))}
-        {programs.map((program) => (
+        {data.map((program) => (
           <ProgramCardContainer>
             <ProgramCard key={program.id} program={program} />
           </ProgramCardContainer>
