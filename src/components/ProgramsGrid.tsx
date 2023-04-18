@@ -1,11 +1,16 @@
 import { SimpleGrid, Text } from "@chakra-ui/react";
+import { Genre } from "../hooks/useGenres";
 import usePrograms from "../hooks/usePrograms";
 import ProgramCard from "./ProgramCard";
 import ProgramCardContainer from "./ProgramCardContainer";
 import ProgramCardSkeleton from "./ProgramCardSkeleton";
 
-const ProgramsGrid = () => {
-  const { data, error, isLoading } = usePrograms();
+interface Props {
+  selectedGenre: Genre | null;
+}
+
+const ProgramsGrid = ({ selectedGenre }: Props) => {
+  const { data, error, isLoading } = usePrograms(selectedGenre);
   const skeletons = [1, 2, 3, 4, 5, 6];
 
   return (
@@ -18,13 +23,13 @@ const ProgramsGrid = () => {
       >
         {isLoading &&
           skeletons.map((skeleton) => (
-            <ProgramCardContainer>
-              <ProgramCardSkeleton key={skeleton} />
+            <ProgramCardContainer key={skeleton}>
+              <ProgramCardSkeleton />
             </ProgramCardContainer>
           ))}
         {data.map((program) => (
-          <ProgramCardContainer>
-            <ProgramCard key={program.id} program={program} />
+          <ProgramCardContainer key={program.id}>
+            <ProgramCard program={program} />
           </ProgramCardContainer>
         ))}
       </SimpleGrid>
