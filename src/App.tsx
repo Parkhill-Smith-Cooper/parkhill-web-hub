@@ -1,4 +1,4 @@
-import { Grid, GridItem, Show } from "@chakra-ui/react";
+import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import GenreList from "./components/GenreList";
 import NavBar from "./components/NavBar";
 import ProgramsGrid from "./components/ProgramsGrid";
@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/usePrograms";
+import SortSelector from "./components/SortSelector";
 
 export interface ProgramQuery {
   genre: Genre | null;
@@ -39,12 +40,15 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <PlatformSelector
-          selectedPlatform={programQuery.platform}
-          onSelectPlatform={(platform) =>
-            setProgramQuery({ ...programQuery, platform })
-          }
-        />
+        <HStack spacing={5} paddingLeft={2} marginBottom={5}>
+          <PlatformSelector
+            selectedPlatform={programQuery.platform}
+            onSelectPlatform={(platform) =>
+              setProgramQuery({ ...programQuery, platform })
+            }
+          />
+          <SortSelector />
+        </HStack>
         <ProgramsGrid programQuery={programQuery} />
       </GridItem>
     </Grid>
