@@ -11,6 +11,7 @@ import SortSelector from "./components/SortSelector";
 export interface ProgramQuery {
   genre: Genre | null;
   platform: Platform | null;
+  sortOrder: string;
 }
 
 function App() {
@@ -47,7 +48,12 @@ function App() {
               setProgramQuery({ ...programQuery, platform })
             }
           />
-          <SortSelector />
+          <SortSelector
+            sortOrder={programQuery.sortOrder}
+            onSelectSortOrder={(sortOrder) =>
+              setProgramQuery({ ...programQuery, sortOrder })
+            }
+          />
         </HStack>
         <ProgramsGrid programQuery={programQuery} />
       </GridItem>

@@ -1,7 +1,7 @@
 import { Card, CardBody, Heading, HStack, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import { Program } from "../hooks/usePrograms";
-import getCroppedImageUrl from "../services/inage-url";
+import getCroppedImageUrl from "../services/image-url";
 import CriticScore from "./CriticScore";
 import PlatformIconList from "./PlatformIconList";
 
