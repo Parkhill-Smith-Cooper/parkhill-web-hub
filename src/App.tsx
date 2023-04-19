@@ -7,6 +7,7 @@ import { Genre } from "./hooks/useGenres";
 import PlatformSelector from "./components/PlatformSelector";
 import { Platform } from "./hooks/usePrograms";
 import SortSelector from "./components/SortSelector";
+import ProgramHeading from "./components/ProgramHeading";
 
 export interface ProgramQuery {
   genre: Genre | null;
@@ -46,22 +47,25 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <Flex paddingLeft={2} marginBottom={5}>
-          <Box marginRight={5}>
-            <PlatformSelector
-              selectedPlatform={programQuery.platform}
-              onSelectPlatform={(platform) =>
-                setProgramQuery({ ...programQuery, platform })
+        <Box paddingLeft={2}>
+          <ProgramHeading programQuery={programQuery} />
+          <Flex marginBottom={5}>
+            <Box marginRight={5}>
+              <PlatformSelector
+                selectedPlatform={programQuery.platform}
+                onSelectPlatform={(platform) =>
+                  setProgramQuery({ ...programQuery, platform })
+                }
+              />
+            </Box>
+            <SortSelector
+              sortOrder={programQuery.sortOrder}
+              onSelectSortOrder={(sortOrder) =>
+                setProgramQuery({ ...programQuery, sortOrder })
               }
             />
-          </Box>
-          <SortSelector
-            sortOrder={programQuery.sortOrder}
-            onSelectSortOrder={(sortOrder) =>
-              setProgramQuery({ ...programQuery, sortOrder })
-            }
-          />
-        </Flex>
+          </Flex>
+        </Box>
         <ProgramsGrid programQuery={programQuery} />
       </GridItem>
     </Grid>
