@@ -1,4 +1,4 @@
-import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import GenreList from "./components/GenreList";
 import NavBar from "./components/NavBar";
 import ProgramsGrid from "./components/ProgramsGrid";
@@ -41,20 +41,22 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <HStack spacing={5} paddingLeft={2} marginBottom={5}>
-          <PlatformSelector
-            selectedPlatform={programQuery.platform}
-            onSelectPlatform={(platform) =>
-              setProgramQuery({ ...programQuery, platform })
-            }
-          />
+        <Flex paddingLeft={2} marginBottom={5}>
+          <Box marginRight={5}>
+            <PlatformSelector
+              selectedPlatform={programQuery.platform}
+              onSelectPlatform={(platform) =>
+                setProgramQuery({ ...programQuery, platform })
+              }
+            />
+          </Box>
           <SortSelector
             sortOrder={programQuery.sortOrder}
             onSelectSortOrder={(sortOrder) =>
               setProgramQuery({ ...programQuery, sortOrder })
             }
           />
-        </HStack>
+        </Flex>
         <ProgramsGrid programQuery={programQuery} />
       </GridItem>
     </Grid>
