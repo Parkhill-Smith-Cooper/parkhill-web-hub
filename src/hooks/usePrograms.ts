@@ -1,3 +1,4 @@
+import { ProgramQuery } from "../App";
 import useData from "./useData";
 import { Genre } from "./useGenres";
 
@@ -15,6 +16,6 @@ export interface Program {
   metacritic: number;
 }
 
-const usePrograms = (selectedGenre: Genre | null, selectedPlatform: Platform | null ) => useData<Program>("/games", { params: {genres: selectedGenre?.id, platforms: selectedPlatform?.id}}, [selectedGenre?.id, selectedPlatform?.id]);
+const usePrograms = ( programQuery: ProgramQuery ) => useData<Program>("/games", { params: {genres: programQuery.genre?.id, platforms: programQuery.platform?.id}}, [programQuery]);
 
 export default usePrograms;
