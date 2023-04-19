@@ -14,13 +14,13 @@ const ProgramCard = ({ program }: Props) => {
     <Card>
       <Image src={getCroppedImageUrl(program.background_image)} />
       <CardBody>
-        <Heading fontSize="2xl">{program.name}</Heading>
-        <HStack justifyContent="space-between">
+        <HStack justifyContent="space-between" marginBottom={3}>
           <PlatformIconList
             platforms={program.parent_platforms.map((p) => p.platform)}
           />
           <CriticScore score={program.metacritic} />
         </HStack>
+        <Heading fontSize="2xl">{program.name}</Heading>
       </CardBody>
     </Card>
   );
