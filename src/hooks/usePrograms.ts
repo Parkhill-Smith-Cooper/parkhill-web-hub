@@ -16,6 +16,18 @@ export interface Program {
   metacritic: number;
 }
 
-const usePrograms = ( programQuery: ProgramQuery ) => useData<Program>("/games", { params: {genres: programQuery.genre?.id, platforms: programQuery.platform?.id, ordering: programQuery.sortOrder}}, [programQuery]);
+const usePrograms = ( programQuery: ProgramQuery ) => 
+  useData<Program>(
+    "/games",
+    { 
+      params: {
+        genres: programQuery.genre?.id, 
+        platforms: programQuery.platform?.id, 
+        ordering: programQuery.sortOrder,
+        search: programQuery.searchText,
+      },
+    }, 
+    [programQuery]
+  );
 
 export default usePrograms;
