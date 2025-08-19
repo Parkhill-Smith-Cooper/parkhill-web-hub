@@ -13,16 +13,18 @@ const SearchInput = ({ onSearch }: Props) => {
     <form
       onSubmit={(event) => {
         event.preventDefault();
-        if (ref.current) onSearch(ref.current.value);
       }}
     >
       <InputGroup>
         <InputLeftElement children={<BsSearch />} />
+        // search will trigger immediately as the program name is typed or
+        deleted text in the search bar
         <Input
           ref={ref}
           borderRadius={20}
           placeholder="Search programs..."
           variant="filled"
+          onChange={(event) => onSearch(event.target.value)}
         />
       </InputGroup>
     </form>
