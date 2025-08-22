@@ -4,20 +4,28 @@ const cors = require("cors");
 const winston = require("winston");
 const app = express();
 
-const config = require("./config.json");
+// Load configuration from environment variables or config file
+let config = {};
+try {
+  // Try to load config.json for local development
+  config = require("./config.json");
+} catch (error) {
+  // Use environment variables for production/deployment
+  config = {
+    MONGO_DB_API_KEY: process.env.MONGO_DB_API_KEY || process.env.MONGODB_URI
+  };
+}
 
 // Enable CORS for all routes
 app.use(cors({ origin: "*" }));
 
 // Connect to MongoDB
-mongoose
+const mongoConnectionString = config.MONGO_DB_API_KEY || "mongodb://localhost/parkhill-web-hub";
 
-  //   .connect("mongodb://localhost/parkhill-web-hub")
-  //   .then(() => console.log("Connected to MongoDB..."))
-  //   .catch((err) => console.error("Could not connect to MongoDB...", err));
-  .connect(config.MONGO_DB_API_KEY)
-  .then(() => console.log("Connected to MongoDB Atlas..."))
-  .catch((err) => console.error("Could not connect to MongoDB Atlas...", err));
+mongoose
+  .connect(mongoConnectionString)
+  .then(() => console.log("Connected to MongoDB..."))
+  .catch((err) => console.error("Could not connect to MongoDB...", err));
 
 require("./startup/routes")(app);
 
