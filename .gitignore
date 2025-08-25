@@ -26,3 +26,9 @@ dist-ssr
 # API KEYS
 backend/config.json
 
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
