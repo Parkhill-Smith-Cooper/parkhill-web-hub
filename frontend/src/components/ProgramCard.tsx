@@ -84,28 +84,46 @@ const ProgramCard = ({ program }: Props) => {
                 ))}
               </HStack>
             </Box>
-            {program.websiteUrl && (
-              <Link
-                href={program.websiteUrl}
-                isExternal
-                display="flex"
-                justifyContent="center"
-                marginTop={4}
-                _hover={{ textDecoration: "none" }}
-                onClick={(e) => e.stopPropagation()} // Prevent modal from opening when clicking the website link
-              >
-                <Button
-                  rightIcon={<ExternalLinkIcon />}
-                  colorScheme="red"
-                  variant="outline"
-                  size="sm"
-                  borderRadius="full"
-                  px={6}
+            <HStack justifyContent="space-between" marginTop={4}>
+              {program.websiteUrl && (
+                <Link
+                  href={program.websiteUrl}
+                  isExternal
+                  _hover={{ textDecoration: "none" }}
+                  onClick={(e) => e.stopPropagation()} // Prevent modal from opening when clicking the website link
                 >
-                  Website
-                </Button>
-              </Link>
-            )}
+                  <Button
+                    rightIcon={<ExternalLinkIcon />}
+                    colorScheme="red"
+                    variant="outline"
+                    size="sm"
+                    borderRadius="full"
+                    px={6}
+                  >
+                    Official Website
+                  </Button>
+                </Link>
+              )}
+              {program.parkillGuidesUrl && (
+                <Link
+                  href={program.parkillGuidesUrl}
+                  isExternal
+                  _hover={{ textDecoration: "none" }}
+                  onClick={(e) => e.stopPropagation()} // Prevent modal from opening when clicking the guides link
+                >
+                  <Button
+                    rightIcon={<ExternalLinkIcon />}
+                    colorScheme="blue"
+                    variant="outline"
+                    size="sm"
+                    borderRadius="full"
+                    px={6}
+                  >
+                    Our Guides
+                  </Button>
+                </Link>
+              )}
+            </HStack>
           </CardBody>
         </VStack>
       </Card>

@@ -19,6 +19,7 @@ export interface Program {
   sectors: Array<{ _id: string; name: string }>;
   imageUrl: string;
   websiteUrl?: string; // Optional property
+  parkillGuidesUrl?: string; // Optional property
   status: "Active" | "Inactive" | "Archived";
 }
 
