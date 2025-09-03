@@ -20,6 +20,7 @@ export interface Program {
   imageUrl: string;
   websiteUrl?: string; // Optional property
   parkillGuidesUrl?: string; // Optional property
+  topUsers?: string; // Optional property
   status: "Active" | "Inactive" | "Archived";
 }
 

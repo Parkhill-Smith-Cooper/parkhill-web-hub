@@ -171,22 +171,42 @@ const ProgramCard = ({ program }: Props) => {
                 ))}
               </HStack>
             </Box>
-            <Text fontWeight="bold" mb={2}>
-              Status:
-            </Text>
-            <Tag
-              colorScheme={
-                program.status === "Active"
-                  ? "green"
-                  : program.status === "Inactive"
-                  ? "yellow"
-                  : "gray"
-              }
-              size="md"
-              borderRadius="full"
-            >
-              {program.status}
-            </Tag>
+            <Box mb={4}>
+              <Text fontWeight="bold" mb={2}>
+                Status:
+              </Text>
+              <Tag
+                colorScheme={
+                  program.status === "Active"
+                    ? "green"
+                    : program.status === "Inactive"
+                    ? "yellow"
+                    : "gray"
+                }
+                size="md"
+                borderRadius="full"
+              >
+                {program.status}
+              </Tag>
+            </Box>
+            {program.topUsers && (
+              <Box mt={4}>
+                <Text fontWeight="bold" mb={2}>
+                  Additional Insights:
+                </Text>
+                <iframe
+                  src={program.topUsers}
+                  height="600"
+                  width="800"
+                  style={{
+                    border: "none",
+                    width: "100%",
+                    maxWidth: "100%",
+                    height: "200px",
+                  }}
+                ></iframe>
+              </Box>
+            )}
           </ModalBody>
 
           <ModalFooter>
