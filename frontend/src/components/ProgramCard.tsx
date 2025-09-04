@@ -217,7 +217,7 @@ const ProgramCard = ({ program }: Props) => {
                   colorScheme="red"
                   variant="solid"
                 >
-                  Download
+                  Download/Open
                 </Button>
               </Link>
             )}
