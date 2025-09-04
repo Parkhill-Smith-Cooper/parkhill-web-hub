@@ -210,14 +210,14 @@ const ProgramCard = ({ program }: Props) => {
           </ModalBody>
 
           <ModalFooter>
-            {program.websiteUrl && (
-              <Link href={program.websiteUrl} isExternal mr={3}>
+            {program.downloadLink && (
+              <Link href={program.downloadLink} isExternal mr={3}>
                 <Button
                   rightIcon={<ExternalLinkIcon />}
                   colorScheme="red"
                   variant="solid"
                 >
-                  Visit Website
+                  Download
                 </Button>
               </Link>
             )}

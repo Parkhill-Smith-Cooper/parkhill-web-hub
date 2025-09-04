@@ -21,6 +21,7 @@ export interface Program {
   websiteUrl?: string; // Optional property
   parkillGuidesUrl?: string; // Optional property
   topUsers?: string; // Optional property
+  downloadLink?: string; // Optional property
   status: "Active" | "Inactive" | "Archived";
 }
 
