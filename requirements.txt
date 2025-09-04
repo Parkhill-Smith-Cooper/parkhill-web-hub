@@ -1,4 +1,0 @@
-flask
-requests
-azure-functions
-# Add other dependencies as needed
