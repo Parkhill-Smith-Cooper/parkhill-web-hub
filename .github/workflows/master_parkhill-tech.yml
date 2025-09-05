@@ -48,5 +48,5 @@ jobs:
         with:
           app-name: 'parkhill-tech'
           slot-name: 'Production'
-          package: dist
+          package: frontend/dist
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5D4D8954D0524B28B05249A119673DA5 }}
