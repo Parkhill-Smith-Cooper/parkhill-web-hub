@@ -72,14 +72,14 @@ const ProgramCard = ({ program }: Props) => {
                 {program.description}
               </Text>
               <HStack marginY={3} spacing={2} flexWrap="wrap">
-                {program.tags.map((tagg) => (
+                {program.tags.map((tag) => (
                   <Tag
-                    key={tagg._id}
+                    key={tag._id}
                     colorScheme="red"
                     size="md"
                     borderRadius="full"
                   >
-                    {tagg.name}
+                    {tag.name}
                   </Tag>
                 ))}
               </HStack>

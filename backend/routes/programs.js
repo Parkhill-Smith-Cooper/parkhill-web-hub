@@ -17,6 +17,7 @@ router.get("/", async (req, res) => {
 
     const programs = await Program.find(query)
       .populate("sectors", "name")
+      .populate("tags", "name")
       .sort("name");
 
     res.send(programs);
