@@ -35,7 +35,7 @@ const GenreList = ({ onSelectSector, selectedSectorId }: Props) => {
             variant="link"
             fontSize="lg"
           >
-            All Programs
+            All Sectors
           </Button>
         </ListItem>
         <Divider my={2} />
