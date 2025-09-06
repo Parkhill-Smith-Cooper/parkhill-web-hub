@@ -72,16 +72,22 @@ const ProgramCard = ({ program }: Props) => {
                 {program.description}
               </Text>
               <HStack marginY={3} spacing={2} flexWrap="wrap">
-                {program.tags.map((tag) => (
-                  <Tag
-                    key={tag._id}
-                    colorScheme="red"
-                    size="md"
-                    borderRadius="full"
-                  >
-                    {tag.name}
-                  </Tag>
-                ))}
+                {program.tags.map((tag, index) => {
+                  // Define an array of color schemes to cycle through
+                  const colorSchemes = ["red", "blue", "green", "yellow", "purple", "orange", "teal", "pink"];
+                  const colorScheme = colorSchemes[index % colorSchemes.length]; // Cycle through colors based on index
+
+                  return (
+                    <Tag
+                      key={tag._id}
+                      colorScheme={colorScheme} // Assign dynamic color scheme
+                      size="md"
+                      borderRadius="full"
+                    >
+                      {tag.name}
+                    </Tag>
+                  );
+                })}
               </HStack>
             </Box>
             <HStack justifyContent="space-between" marginTop={4}>
@@ -159,16 +165,22 @@ const ProgramCard = ({ program }: Props) => {
                 Disciplines:
               </Text>
               <HStack spacing={2} flexWrap="wrap">
-                {program.tags.map((tag) => (
-                  <Tag
-                    key={tag._id}
-                    colorScheme="red"
-                    size="md"
-                    borderRadius="full"
-                  >
-                    {tag.name}
-                  </Tag>
-                ))}
+              {program.tags.map((tag, index) => {
+                  // Define an array of color schemes to cycle through
+                  const colorSchemes = ["red", "blue", "green", "yellow", "purple", "orange", "teal", "pink"];
+                  const colorScheme = colorSchemes[index % colorSchemes.length]; // Cycle through colors based on index
+
+                  return (
+                    <Tag
+                      key={tag._id}
+                      colorScheme={colorScheme} // Assign dynamic color scheme
+                      size="md"
+                      borderRadius="full"
+                    >
+                      {tag.name}
+                    </Tag>
+                  );
+                })}
               </HStack>
             </Box>
             <Box mb={4}>
