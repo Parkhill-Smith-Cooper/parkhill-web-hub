@@ -36,6 +36,14 @@ const programSchema = new mongoose.Schema({
       required: true,
     },
   ],
+  // Array of references to Sector documents
+  tags: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Tag", // This refers to the Tag model
+      required: false,
+    },
+  ],
   imageUrl: {
     type: String,
     default: "https://placehold.co/600x400?text=Program+Image", // Default placeholder image

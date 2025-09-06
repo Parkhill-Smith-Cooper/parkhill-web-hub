@@ -11,12 +11,16 @@ export default apiClient;
 export const getSectors = () =>
   apiClient.get("/sectors").then((res) => res.data);
 
+export const getTags = () =>
+  apiClient.get("/tags").then((res) => res.data);
+
 export interface Program {
   _id: string;
   name: string;
   developer: string;
   description: string;
   sectors: Array<{ _id: string; name: string }>;
+  tags: Array<{ _id: string; name: string }>;
   imageUrl: string;
   websiteUrl?: string; // Optional property
   parkillGuidesUrl?: string; // Optional property

@@ -72,14 +72,14 @@ const ProgramCard = ({ program }: Props) => {
                 {program.description}
               </Text>
               <HStack marginY={3} spacing={2} flexWrap="wrap">
-                {program.sectors.map((sector) => (
+                {program.tags.map((tagg) => (
                   <Tag
-                    key={sector._id}
+                    key={tagg._id}
                     colorScheme="red"
                     size="md"
                     borderRadius="full"
                   >
-                    {sector.name}
+                    {tagg.name}
                   </Tag>
                 ))}
               </HStack>
@@ -156,17 +156,17 @@ const ProgramCard = ({ program }: Props) => {
             </Text>
             <Box mb={4}>
               <Text fontWeight="bold" mb={2}>
-                Sectors:
+                Disciplines:
               </Text>
               <HStack spacing={2} flexWrap="wrap">
-                {program.sectors.map((sector) => (
+                {program.tags.map((tag) => (
                   <Tag
-                    key={sector._id}
+                    key={tag._id}
                     colorScheme="red"
                     size="md"
                     borderRadius="full"
                   >
-                    {sector.name}
+                    {tag.name}
                   </Tag>
                 ))}
               </HStack>

@@ -36,6 +36,7 @@ router.post("/", async (req, res) => {
       developer: req.body.developer,
       description: req.body.description,
       sectors: req.body.sectors,
+      tags: req.body.tags,
       websiteUrl: req.body.websiteUrl,
       imageUrl: req.body.imageUrl,
     });
@@ -55,6 +56,7 @@ router.get("/:id", async (req, res) => {
   try {
     const program = await Program.findById(req.params.id).populate(
       "sectors",
+      "tags",
       "name"
     );
 
